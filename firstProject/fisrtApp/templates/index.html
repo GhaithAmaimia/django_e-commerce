@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data" style="width: 500px; margin: 0 auto;">
+        {% csrf_token %}
+        <div>
+            <br>
+            <p>
+                <h3>Enter Details</h3>
+            </p>
+            <div>
+                <p>Product Name:</p>{{ form.name }}
+            </div>
+            <div>
+                <p>Product Description:</p>{{ form.description }}
+            </div>
+            <div>
+                <p>Product Price:</p>{{ form.price }}
+            </div>
+            <div>
+                <p>Product Image:</p>{{ form.image }}
+            </div>
+            <div>
+                <br>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </form>
+
+
+    {% comment %} <label class="form-label">Name:</label>
+    <input class="form-control form-control-lg" type="text" aria-label=".form-control-lg example" value="{{form.name}}">
+
+    <div class="mb-3">
+        <label class="form-label">Description:</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value="{{form.description}}"></textarea>
+      </div>
+      <label class="form-label">Price:</label>
+    <input class="form-control form-control-lg" type="number" aria-label=".form-control-lg example" value="{{form.name}}">
+
+    <div class="mb-3">
+        <label  class="form-label">Select Image</label>
+        <input class="form-control" type="file" id="formFile" value="{{form.image}}">
+      </div> {% endcomment %}
+</body>
+
+</html>
